@@ -19,56 +19,56 @@
 
 我们通过解决检索兴趣相关文章的问题来讨论最近邻搜索。首先我们来描述一下文献检索这个问题，假设你正在阅读一篇文章，比如一篇关于体育报道的新闻。   
 
-** 目标：** 找到和当前阅读的文章最相似的文章  
-** 两个问题：**
+**目标：** 找到和当前阅读的文章最相似的文章  
+**两个问题：**
 
 - 怎样定义相似性 (similarity)
 - 怎么从一大堆文献中搜索相似文章
 
 ### 2. 最近邻搜索 (NN Search)
 
-** 1-最近邻搜索 (1-NN search) **
+**1-最近邻搜索 (1-NN search)**
 
 假设我们已经对所有要被检索的文章定义了一个空间，空间中每篇文章的距离用相似性来描述。然后我们要找到空间中和当前阅读文章(query article)最相似的文章(1-NN)，或者最相似的文章集合。
 
 ![文章距离空间](image/article_space.JPG "文章距离空间")
 
 ***
-** 1-最近邻算法 (1-NN algorithm) **
+**1-最近邻算法 (1-NN algorithm)**
 ***
-** 输入：** 当前阅读的文章：$X_q$
-            文集：$X_1,X_2,\cdots,X_N$   
-** 输出：** 最相似的文章：$X^{NN}$  
-其中，$X^{NN}$ = arg$\min\limits_{i}$ distance$(X_i,X_q)$  
-初始化 ** Dist2NN = $\infty, X^{NN}$ = $\varnothing$ **  
-For $i=1,2,\cdots,N$  
-　　计算：$\delta = distance(X_i,X_q)$  
-    if $\delta<$**Dist2NN**  
-    　　令 $X^{NN}=X_i$  
-          　　令** Dist2NN**=$\delta$  
+**输入:** 当前阅读的文章：![](http://latex.codecogs.com/gif.latex?$X_q$)
+            文集：![](http://latex.codecogs.com/gif.latex?$X_1,X_2,\\cdots,X_N$)   
+**输出:** 最相似的文章：![](http://latex.codecogs.com/gif.latex?$X^{NN}$)  
+其中，![](http://latex.codecogs.com/gif.latex?$X^{NN}$) = arg![](http://latex.codecogs.com/gif.latex?$\\min\\limits_{i}$) distance![](http://latex.codecogs.com/gif.latex?$(X_i,X_q)$)  
+初始化 **Dist2NN** = ![](http://latex.codecogs.com/gif.latex?$\\infty), ![](http://latex.codecogs.com/gif.latex?$X^{NN}$)=![](http://latex.codecogs.com/gif.latex?$\\varnothing$)    
+For ![](http://latex.codecogs.com/gif.latex?$i=1,2,\\cdots,N$)  
+　　计算：![](http://latex.codecogs.com/gif.latex?$\\delta$) = distance![](http://latex.codecogs.com/gif.latex?$(X_i,X_q)$)  
+    if ![](http://latex.codecogs.com/gif.latex?$\\delta$)<**Dist2NN**  
+    　　令 ![](http://latex.codecogs.com/gif.latex?$X^{NN}=X_i$)  
+          　　令**Dist2NN** = ![](http://latex.codecogs.com/gif.latex?$\\delta$)  
 Return 最相似文章：$X^{NN}$
 ***
 
 ***
-** K-最近邻算法 (K-NN algorithm) **
+**K-最近邻算法(K-NN algorithm)**
 ***  
-** 输入：** 当前阅读的文章：$X_q$
-             文集：$X_1,X_2,\cdots,X_N$   
-** 输出：** 最相似的文章列表(list)：$X^{NN}$  
-其中，$X^{NN}$ = $\{X^{NN_1},\cdots,X^{NN_k}\}$，对所有不在$X^{NN}$中的$X_i$，都有$distance(X_i,X_q)\ge\max\limits_{X^{NN_j},j=1,\cdots,k}distance(X^{NN_j},X_q)$  
-初始化 ** Dist2KNN ** = sort$(\delta_1,\cdots,\delta_k)$，$X^{NN}=sort(X_1,\cdots,X_k)$     
-For $i=k+1,\cdots,N$  
-　　计算：$\delta = distance(X_i,X_q)$  
-    if $\delta<$**Dist2KNN**[K]  
-    　　找到**j**使得**Dist2KNN**[j]>$\delta>$**Dist2KNN**[j-1]  
+**输入:** 当前阅读的文章：![](http://latex.codecogs.com/gif.latex?$X_q$)
+             文集：![](http://latex.codecogs.com/gif.latex?$X_1,X_2,\\cdots,X_N$)   
+**输出:** 最相似的文章列表(list)：![](http://latex.codecogs.com/gif.latex?$X^{NN}$)  
+其中，![](http://latex.codecogs.com/gif.latex?$X^{NN}$) = ![](http://latex.codecogs.com/gif.latex?$\\{X^{NN_1},\\cdots,X^{NN_k}\\}$)，对所有不在![](http://latex.codecogs.com/gif.latex?$X^{NN}$)中的![](http://latex.codecogs.com/gif.latex?$X_i$)，都有distance![](http://latex.codecogs.com/gif.latex?$(X_i,X_q)\\ge\\max\\limits_{X^{NN_j},j=1,\\cdots,k}$)distance![](http://latex.codecogs.com/gif.latex?$(X^{NN_j},X_q)$)  
+初始化 **Dist2KNN** = sort![](http://latex.codecogs.com/gif.latex?$(\\delta_1,\\cdots,\\delta_k)$)，![](http://latex.codecogs.com/gif.latex?$X^{NN}$)=sort![](http://latex.codecogs.com/gif.latex?$(X_1,\\cdots,X_k)$)     
+For ![](http://latex.codecogs.com/gif.latex?$i=k+1,\\cdots,N$)  
+　　计算：![](http://latex.codecogs.com/gif.latex?$\\delta$) = distance![](http://latex.codecogs.com/gif.latex?$(X_i,X_q)$)  
+    if ![](http://latex.codecogs.com/gif.latex?$\\delta$)<**Dist2KNN**[K]  
+    　　找到**j**使得**Dist2KNN**[j]>![](http://latex.codecogs.com/gif.latex?$\\delta>$)**Dist2KNN**[j-1]  
     　　删除最远的元素并且移动列表：  
-        　　　　$X^{NN}[j+1:K]=X^{NN}[j:K-1]$  
+        　　　　![](http://latex.codecogs.com/gif.latex?$X^{NN}[j+1:K]=X^{NN}[j:K-1]$)  
             　　**Dist2KNN**[j+1:K]=Dist2KNN[j:K-1]  
-        　　   令 **Dist2KNN**[j]=$\delta$，$X^{NN}$[j]=$X_i$    
-Return K篇最相似的文章：$X^{NN}$  
+        　　   令 **Dist2KNN**[j]=![](http://latex.codecogs.com/gif.latex?$\\delta$)，![](http://latex.codecogs.com/gif.latex?$X^{NN}$)[j]=![](http://latex.codecogs.com/gif.latex?$X_i$)    
+Return K篇最相似的文章：![](http://latex.codecogs.com/gif.latex?$X^{NN}$)  
 ***
 
-从上述算法中可以发现，实现**NN Search**的过程比较直观，但是有**两个很关键的因素：**  
+从上述算法中可以发现，实现**NN Search**的过程比较直观，但是有**两个很关键的因素:**  
 
 - 怎样表示每篇文章，以便计算
 - 怎么衡量文章之间的距离
@@ -77,7 +77,7 @@ Return K篇最相似的文章：$X^{NN}$
 
 ### 1. 文章表示
 
-** 简单词数统计(word counts)表示： **
+**简单词数统计(word counts)表示:**
 
 - 忽略词的语序
 - 统计每个词出现的次数  
@@ -91,12 +91,12 @@ $X_q=$ {'Carlos':1, 'the':2, 'Emily':1, 'soccer':1, 'calls':2, 'sport':2, 'futbo
 
 显然，常用词对判断两篇文章的相似性没有什么意义，而它们往往又大量出现，所以改进的表示方法中应该增加重要稀有词的权重。  
 
-** TF-IDF 文章表示 (Term Frequency Inverse Document Frequency)：**
+**TF-IDF文章表示(Term Frequency Inverse Document Frequency):**
 强调重要稀有词：
 + 在当前文章中经常出现：
 Term Frequency(tf) = 词数
 + 在整个文集中出现较少：
-Inverse doc freq.(idf) = $log\frac{文章数}{1+用了这个词的文章数}$   
+Inverse doc freq.(idf) = ![](http://latex.codecogs.com/gif.latex?$log\\frac{文章数}{1+用了这个词的文章数}$)   
 这一步即为降低常用词的比重，增加重要词汇的权重  
 
 TF-IDF = tf * idf
@@ -107,10 +107,10 @@ TF-IDF = tf * idf
 + 比如这里，比较两篇文章的相似度时，假设文章的标题和摘要比文章的主体部分更能反映文章内容。
 + 也有可能，特征A变化大，特征B变化小，而实际上两个特征的变化同样重要，就需要对B赋予更大的权重。  
   在这种情况下，一种做法是将权重表示成特征散度的函数，比如，
-  第j个特征的权重 = $\frac{1}{\max\limits_{i}(X_i[j])-\min\limits_{i}(X_i[j])}$
+  第j个特征的权重 = ![](http://latex.codecogs.com/gif.latex?$\\frac{1}{\\max\\limits_{i}(X_i[j])-\\min\\limits_{i}(X_i[j])}$)
   
-** Scaled-Euclidean: ** $distance(X_i,X_q)=\sqrt{a_1(X_i[1]-X_q[1])^2+\cdots+a_d(X_i[d]-X_q[d])^2}$，其中，$a_j,j=1,\cdots,d$即为特征的权重。  
-特别地，$a_j$取0或1时，就是特征选择的效果。
+**Scaled-Euclidean:** distance![](http://latex.codecogs.com/gif.latex?$(X_i,X_q)=\\sqrt{a_1(X_i[1]-X_q[1])^2+\\cdots+a_d(X_i[d]-X_q[d])^2}$)，其中，![](http://latex.codecogs.com/gif.latex?$a_j,j=1,\\cdots,d$)即为特征的权重。  
+特别地，![](http://latex.codecogs.com/gif.latex?$a_j$)取0或1时，就是特征选择的效果。
 
 如何设置权重，或者特征选择/[特征工程](https://www.zhihu.com/question/29316149 "特征工程-知乎")（Feature Selection/Feature Engineering)非常重要但同时也很困难，对不同的问题要具体分析。  
 
@@ -118,11 +118,11 @@ TF-IDF = tf * idf
 
 除了欧几里得距离外，还有一种计算简便的内积距离测量方式：$distance(X_q,X_i)=X_i^{T} X_q$。此时，计算的是两篇文章重叠的词汇。  
 
-**例：** $X_q=[1,0,0,0,5,3,0,0,1,0,0,0,0]$，$X_i=[3,0,0,0,2,0,0,1,0,1,0,0,0]$，相似性=13。
+**例:** $X_q=[1,0,0,0,5,3,0,0,1,0,0,0,0]$，$X_i=[3,0,0,0,2,0,0,1,0,1,0,0,0]$，相似性=13。
 
 但是，从上面的例子可以看出，如果这两篇文章内容不变地复制成两倍长度的文章，相似性=52，也就是相似性增加，这明显是不合理的。所以考虑标准化的处理方式。
 
-**cosine similarity =** $(\frac{X_i}{||X_i||})^T(\frac{X_q}{||X_q||})=\cos(\theta)$  
+**cosine similarity =** ![](http://latex.codecogs.com/gif.latex?$(\\frac{X_i}{||X_i||})^T(\\frac{X_q}{||X_q||})=\\cos(\\theta)$)  
 不过，cosine similarity并不是一种标准距离，不满足三角不等式，但是在计算稀疏向量（有很多个0）是非常快。
 ![cosine_similarity](image/cosine_similarity.JPG "cosine_similarity")
 
@@ -762,7 +762,7 @@ combined_words
 
 
 
-**注意：** **join**操作只是简单地连接相同的列，并没有强制排序，为了看的更清楚，对表进行**sort**操作。
+**注意:** **join**操作只是简单地连接相同的列，并没有强制排序，为了看的更清楚，对表进行**sort**操作。
 
 
 ```python
@@ -834,7 +834,7 @@ combined_words.sort('Obama', ascending=False)
 
 
 
-**小问题： **在同时出现在Obama和Barrio文章的单词中，找到在Obama文章中最常出现的5个。那么在数据集，也就是所有文章中，包含了这5个词的有多少篇？
+**小问题:**在同时出现在Obama和Barrio文章的单词中，找到在Obama文章中最常出现的5个。那么在数据集，也就是所有文章中，包含了这5个词的有多少篇？
 
 提示：
 
@@ -1610,7 +1610,7 @@ plt.tight_layout()
 
 **注意：**出于计算时间的考虑，这里的文章其实都只是摘要而非全文，所以比真实的文章短得多。
 
-为了消除这种对短文的偏向，考虑**cosine distances**：$$d(x,y) = 1-\frac{x^Ty}{||x||||y||}$$   
+为了消除这种对短文的偏向，考虑**cosine distances**：![](http://latex.codecogs.com/gif.latex?$$d(x,y) = 1-\\frac{x^Ty}{||x||||y||}$$)   
 下面训练一个新的最近邻模型，用cosine distance来计算和Obama最相近的100篇文章。
 
 
@@ -2118,7 +2118,7 @@ KD-tree的搜索效率和分割空间有很大的关系，假设最终得到的�
 
 到目前为止，我们都假设：最近邻算法找到最近解比找到其他差不多的解要更有意义，用来计算距离的方法完全有效科学，所以我们找到的就是最理想的最近邻。但实际上，可能没有必要找到最精确的那个解，找一个近似的但足够满足要求的相似文章，从而节省许多的时间。
 
-通过KD-树来近似，r表示当前最近距离，用$\frac{r}{\alpha}$作为约束来删除点。即，如果我们找到了距离是r的最近邻，那么不会有更近的点到query point的距离小于$\frac{r}{\alpha}$。这样，我们节省了时间因为删除了更多的点，而精确度差不多,因为计算距离的时候本来就有许多噪声。
+通过KD-树来近似，r表示当前最近距离，用![](http://latex.codecogs.com/gif.latex?$\\frac{r}{\\alpha}$)作为约束来删除点。即，如果我们找到了距离是r的最近邻，那么不会有更近的点到query point的距离小于![](http://latex.codecogs.com/gif.latex?$\\frac{r}{\\alpha}$)。这样，我们节省了时间因为删除了更多的点，而精确度差不多,因为计算距离的时候本来就有许多噪声。
 
 <h2 id = "LSH">四、LSH(Locality Sensitive Hashing)求近似最近邻</h2>
 
@@ -2136,7 +2136,7 @@ KD-tree的搜索效率和分割空间有很大的关系，假设最终得到的�
 
 ### 随机选择分割线
 
-LSH的思路非常简单，但是这条分割线怎么选才合理呢？假设我们随机画过原点的线，如果用cosine similarity来度量点之间的距离，那么分割线将query point和它的最近邻分开的概率，也就是搜索一个盒子后找不到最近邻的概率应该是**$\frac{2\theta}{\pi}$**。这是一个小概率事件。
+LSH的思路非常简单，但是这条分割线怎么选才合理呢？假设我们随机画过原点的线，如果用cosine similarity来度量点之间的距离，那么分割线将query point和它的最近邻分开的概率，也就是搜索一个盒子后找不到最近邻的概率应该是![](http://latex.codecogs.com/gif.latex?$\\frac{2\\theta}{\\pi}$)。这是一个小概率事件。
 
 所以线简单地随机选择就好了，但是还有一个问题，如果数据集很大，画一条线之后，每个盒子里的点依然很多，那计算量还是很大。
 
@@ -2162,7 +2162,7 @@ LSH的思路非常简单，但是这条分割线怎么选才合理呢？假设�
 2. 计算每个点的值，来确定对应的二进制指标0/1;
 3. 对query point所在的区域进行搜索，然后是相邻区域，再相邻的区域，反复直到达到停止条件。
 
-对于高维情况，可以粗略地估计一下构造哈希表的时间复杂度：计算每个点的值，假设d维数据，i个划分超平面，进行$d\times i$次乘法。同时因为实际一篇文章中只有有限的不同词汇，所以是一个稀疏向量乘法，那么实际耗时会小得多。在进行多次查询时，这个时间是可以忍受的。
+对于高维情况，可以粗略地估计一下构造哈希表的时间复杂度：计算每个点的值，假设d维数据，i个划分超平面，进行![](http://latex.codecogs.com/gif.latex?$d\\times i$)次乘法。同时因为实际一篇文章中只有有限的不同词汇，所以是一个稀疏向量乘法，那么实际耗时会小得多。在进行多次查询时，这个时间是可以忍受的。
 
 <h2 id = "Assignment2">Programming Assignment2</h2>
 
@@ -2750,7 +2750,7 @@ wiki[wiki['name'] == 'Barack Obama']
 
 
 
-**小问题：**Barack Obama的文章的整数指标是多少？
+**小问题:**Barack Obama的文章的整数指标是多少？
 
 
 ```python
@@ -2965,8 +2965,8 @@ for doc_id in doc_ids:
 为了获得所有和L有某些位不同的候选区域，我们用[itertools.combinations](https://docs.python.org/3/library/itertools.html#itertools.combinations "itertools.combinations"),来产生给定列表的所有可能子集。
 
 1. 决定搜索半径r，即有多少位不同。
-2. 对列[0,1,2,...,num_vector-1]的每一个子集[$n_1,n_2,...,n_r$]:
-    + 改变query point的二进制指标的($n_1,n_2,...,n_r$)位，得到新的区域指标
+2. 对列[0,1,2,...,num_vector-1]的每一个子集![](http://latex.codecogs.com/gif.latex?$n_1,n_2,...,n_r$):
+    + 改变query point的二进制指标的![](http://latex.codecogs.com/gif.latex?$n_1,n_2,...,n_r$)位，得到新的区域指标
     + 获得这个区域指标的文章列
     + 将这些文章添加到候选检查集合中
     
@@ -3620,7 +3620,7 @@ else:
     Passed test
     
 
-**注意：**这里得到的和Obama相似的文章很少，所以我们要尽可能地增加搜索半径，以获得更多的候选。
+**注意:**这里得到的和Obama相似的文章很少，所以我们要尽可能地增加搜索半径，以获得更多的候选。
 
 现在，我们就能利用这些候选文章列，来进行最近邻搜索。
 
