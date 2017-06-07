@@ -83,7 +83,7 @@ Return K篇最相似的文章：![](http://latex.codecogs.com/gif.latex?$X^{NN}$
 - 统计每个词出现的次数  
 
 **例：**"Carlos calls the sport futbol. Emily calls the sport soccer."    
-$X_q=$ {'Carlos':1, 'the':2, 'Emily':1, 'soccer':1, 'calls':2, 'sport':2, 'futbol':1}
+![](http://latex.codecogs.com/gif.latex?$X_q$) = {'Carlos':1, 'the':2, 'Emily':1, 'soccer':1, 'calls':2, 'sport':2, 'futbol':1}
 
 但是这种简单地统计文章中词汇出现的次数的表示方法，有一个缺陷。我们将文章中出现的词主要分为两类： 
 + 常用词：比如，'the', 'player', 'field'这些在所有要搜索文章中都经常出现。
