@@ -138,7 +138,7 @@ TF-IDF = tf * idf
 [返回目录](#目录)
 
 1. [准备：工具包、加载数据](#准备)
-2. [初步实现最近邻搜索：word count](#word count)
+2. [初步实现最近邻搜索：word count](#word-count)
 3. [TF-IDF改进](#TF-IDF)
 4. [不同距离度量的影响](#distance)
 
@@ -257,7 +257,7 @@ wiki
 
 
 
-<h3 id = "word count">提取简单字数统计向量</h3>
+<h3 id = "word-count">提取简单字数统计向量</h3>
 
 用graphlab进行简单计算统计，并作为wiki的一列添加。
 
