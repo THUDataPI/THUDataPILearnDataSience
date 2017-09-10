@@ -7,11 +7,11 @@
 
 线性回归和逻辑回归是数据挖掘领域最简单最基础的机器学习算法,几乎所有的机器学习书籍和教程都会将此算法放在最前面介绍，之后再逐渐深入。  
 
-线性回归假设结果和特征满足线性关系，即![][1]
+线性回归假设结果和特征满足线性关系，即![][1]  
 [1]: http://latex.codecogs.com/gif.latex?h_{\Theta} \(x\)=\Theta{_0}+\Theta{_1}x_1+\Theta{_2}x_2+\Theta{_3}x_3
 ，为连续模型，容易受噪声影响。
 
-逻辑回归本质上是线性回归，只是在特征到结果的映射上添加一层函数映射，即![][2]
+逻辑回归本质上是线性回归，只是在特征到结果的映射上添加一层函数映射，即![][2]  
 [2]:http://latex.codecogs.com/gif.latex?z=h_{\Theta} \(x\)=\Theta{_0}+\Theta{_1}x_1+\Theta{_2}x_2+\Theta{_3}x_3
 ，![](http://latex.codecogs.com/gif.latex?g(z)=\frac{1}{1+e^{-z}}) ，添加映射后，连续模型变为二元模型，受噪声影响变小。  
 
@@ -87,7 +87,7 @@ plt.scatter(diabetes_X_test,diabetes_y_test, color='black')
 plt.plot(diabetes_X_test,diabetes_y_test_pred,color = 'blue',linewidth=3)
 plt.show()
 ```
-！[sorry]（./media/image_plt.png）
+！[sorry](./media/image_plt.png)
 
 参考资料：http://blog.csdn.net/olanlanxiari/article/details/48086917
 
