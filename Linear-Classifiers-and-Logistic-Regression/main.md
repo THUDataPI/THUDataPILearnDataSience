@@ -86,7 +86,9 @@ plt.scatter(diabetes_X_test,diabetes_y_test, color='black')
 plt.plot(diabetes_X_test,diabetes_y_test_pred,color = 'blue',linewidth=3)
 plt.show()
 ```
-![sorry](./media/image_plt.png)
+![sorry](./media/image_plt.png)  
+
+使用逻辑回归进行数据分类的操作流程也基本相似，在建立模型时使用 linear_model.LogisticRegression() ,在评估预测效果时使用metrics.f1_score、metrics.precision_score、metrics.recall_score等评估指标。至此，读者就能按照操作步骤使用简单机器学习算法解决实际问题。
 
 参考资料：http://blog.csdn.net/olanlanxiari/article/details/48086917
 
