@@ -1,7 +1,7 @@
 # Linear Classifiers and Logistic Regression -- 手把手教线性分类器和逻辑回归
+ 
 
-
-## 线性分类
+## 概念简介
 线性分类问题是数据在空间中的分布，可以用一条直线（或平面/超平面）分割。如螺旋状的数据线性不可分。  
 线性分类器是一些可以解决线性分类问题的机器学习算法，其模型往往都是一个线性函数，如决策树桩/线性回归/支持向量机。  
 
@@ -36,7 +36,7 @@ sudo apt-get install python-pip
 使用sklearn自带的糖尿病预测数据集。
 糖尿病数据集包括442条记录，每条记录对应一个病人的生理数据，标签为一年以后的病情发展情况。数据集中特征维度为10维，包括年龄、性别、体质指数、血压、6种血清化验数据。
 
-### 四、运用流程
+### 四、运用步骤
 导入数据:  
 ```
 from sklearn import datasets
@@ -90,6 +90,9 @@ plt.show()
 
 使用逻辑回归进行数据分类的操作流程也基本相似，在建立模型时使用 linear_model.LogisticRegression() ,在评估预测效果时使用metrics.f1_score、metrics.precision_score、metrics.recall_score等评估指标。至此，读者就能按照操作步骤使用简单机器学习算法解决实际问题。
 
-参考资料：http://blog.csdn.net/olanlanxiari/article/details/48086917
+参考资料：
+http://blog.csdn.net/olanlanxiari/article/details/48086917
+http://scikit-learn.org
+http://www.cnblogs.com/yhl-yh/p/6714950.html
 
 
