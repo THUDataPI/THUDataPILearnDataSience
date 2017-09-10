@@ -87,7 +87,7 @@ plt.scatter(diabetes_X_test,diabetes_y_test, color='black')
 plt.plot(diabetes_X_test,diabetes_y_test_pred,color = 'blue',linewidth=3)
 plt.show()
 ```
-！[sorry]（./image_plt.png）
+！[sorry]（./media/image_plt.png）
 
 参考资料：http://blog.csdn.net/olanlanxiari/article/details/48086917
 
