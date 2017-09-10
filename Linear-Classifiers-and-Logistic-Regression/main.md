@@ -1,5 +1,6 @@
 # Linear Classifiers and Logistic Regression
-----手把手教线性分类器和逻辑回归
+##----手把手教线性分类器和逻辑回归
+
 
 ## 线性分类
 线性分类问题是数据在空间中的分布，可以用一条直线（或平面/超平面）分割。如螺旋状的数据线性不可分。  
@@ -12,20 +13,21 @@
 ，为连续模型，容易受噪声影响。
 
 逻辑回归本质上是线性回归，只是在特征到结果的映射上添加一层函数映射，即![][2]  
-[2]: http://latex.codecogs.com/gif.latex?z=h_{\Theta} \(x\)=\Theta{_0}+\Theta{_1}x_1+\Theta{_2}x_2+\Theta{_3}x_3  
+[2]: http://latex.codecogs.com/gif.latex?z=h_{\Theta}=\Theta{_0}+\Theta{_1}x_1+\Theta{_2}x_2+\Theta{_3}x_3  
 ，![](http://latex.codecogs.com/gif.latex?g(z)=\frac{1}{1+e^{-z}}) ，添加映射后，连续模型变为二元模型，受噪声影响变小。  
 
 本文不对理论做过多介绍，有兴趣可参考 （[对线性回归、逻辑回归、各种回归的概念学习](http://blog.csdn.net/viewcode/article/details/8794401)）。下面在python环境下进行模型的演示。
 
 ### 一、安装python环境。     
-可参考[python官网]（www.python.org），一般Linux都会自带python环境。
+可参考[python官网]（www.python.org），一般Linux都会自带python环境。  
 ### 二、安装sklearn包。  
-简单的做法，可以先安装python的pip包管理工具，之后再用pip安装sklearn包。pip安装可参考（[http://pip.pypa.io](http://pip.pypa.io)），python 2版本2.7.9以上或python 3 版本3.4以上都自带pip，不再需要安装。
+简单的做法，可以先安装python的pip包管理工具，之后再用pip安装sklearn包。pip安装可参考（[http://pip.pypa.io](http://pip.pypa.io)），python 2版本2.7.9以上或python 3 版本3.4以上都自带pip，不再需要安装。  
 ####脚本安装方式：  
 ```
 curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py  
 python get-pip.py
 ```
+
 ####包管理软件安装方式：
 ```
 sudo yum install python-pip
