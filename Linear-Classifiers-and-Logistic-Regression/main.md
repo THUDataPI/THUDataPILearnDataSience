@@ -13,8 +13,7 @@
 ，为连续模型，容易受噪声影响。
 
 逻辑回归本质上是线性回归，只是在特征到结果的映射上添加一层函数映射，即  
-![][2]  
-[2]: http://latex.codecogs.com/gif.latex?z=h_{\Theta} \(x\)=\Theta{_0}+\Theta{_1}x_1+\Theta{_2}x_2+\Theta{_3}x_3  
+![](http://latex.codecogs.com/gif.latex?z=h_{\Theta} \(x\)=\Theta{_0}+\Theta{_1}x_1+\Theta{_2}x_2+\Theta{_3}x_3)
 ，![](http://latex.codecogs.com/gif.latex?g(z)=\frac{1}{1+e^{-z}}) ，添加映射后，连续模型变为二元模型，受噪声影响变小。  
 
 本文不对理论做过多介绍，有兴趣可参考 （[对线性回归、逻辑回归、各种回归的概念学习](http://blog.csdn.net/viewcode/article/details/8794401)）。下面在python环境下进行模型的演示。
