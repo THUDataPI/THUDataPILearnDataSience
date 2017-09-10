@@ -1,5 +1,4 @@
-# Linear Classifiers and Logistic Regression
-##----手把手教线性分类器和逻辑回归
+# Linear Classifiers and Logistic Regression -- 手把手教线性分类器和逻辑回归
 
 
 ## 线性分类
@@ -14,10 +13,10 @@
 逻辑回归本质上是线性回归，只是在特征到结果的映射上添加一层函数映射，即
 ![](http://latex.codecogs.com/gif.latex?z=h_{\Theta}\(x\)=\Theta{_0}+\Theta{_1}x_1+\Theta{_2}x_2+\Theta{_3}x_3)，![](http://latex.codecogs.com/gif.latex?g(z)=\frac{1}{1+e^{-z}}) ，添加映射后，连续模型变为二元模型，受噪声影响变小。  
 
-本文不对理论做过多介绍，有兴趣可参考 （[对线性回归、逻辑回归、各种回归的概念学习](http://blog.csdn.net/viewcode/article/details/8794401)）。下面在python环境下进行模型的演示。
+本文不对理论做过多介绍，有兴趣可参考 （[对线性回归、逻辑回归、各种回归的概念学习](http://blog.csdn.net/viewcode/article/details/8794401)）。以下在python环境中进行模型的演示。
 
 ### 一、安装python环境。     
-可参考[python官网]（www.python.org），一般Linux都会自带python环境。  
+可参考[python官网](www.python.org)，一般Linux都会自带python环境。  
 ### 二、安装sklearn包。  
 简单的做法，可以先安装python的pip包管理工具，之后再用pip安装sklearn包。pip安装可参考（[http://pip.pypa.io](http://pip.pypa.io)），python 2版本2.7.9以上或python 3 版本3.4以上都自带pip，不再需要安装。  
 #### 脚本安装方式：  
@@ -31,10 +30,10 @@ python get-pip.py
 sudo yum install python-pip
 sudo apt-get install python-pip
 ```
-之后就可以用pip安装各类包了，本文中需要用到numpy，scipy，sklearn，matplotlib包。可使用pip install numpy scipy sklearn matplotlib安装。sklearn是python环境下的机器学习软件包，里面包含了常用的机器学习算法，用户只需使用自己的数据，调用其中相应的库，训练出自己的模型，再使用模型完成预测/分类等任务。
+之后就可以用pip安装各类包了，本文中需要用到numpy，scipy，sklearn，matplotlib包。可使用`pip install numpy scipy sklearn matplotlib`安装。sklearn是python环境下的机器学习软件包，里面包含了常用的机器学习算法，用户只需使用自己的数据，调用其中相应的库，训练出自己的模型，再使用模型完成预测/分类等任务。
 
 ### 三、数据
-线性回归：使用sklearn自带的糖尿病预测数据集。
+使用sklearn自带的糖尿病预测数据集。
 糖尿病数据集包括442条记录，每条记录对应一个病人的生理数据，标签为一年以后的病情发展情况。数据集中特征维度为10维，包括年龄、性别、体质指数、血压、6种血清化验数据。
 
 ### 四、运用流程
